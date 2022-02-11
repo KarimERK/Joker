@@ -9,7 +9,7 @@ package blackjack;
 //Declaration for the class
 public class Card {
     
-  //Declaring value of cards
+ //Declaring value of cards
     //52 cards in the deck
     //All cards have suit and value
     
@@ -22,12 +22,16 @@ public class Card {
             Value[] values = Value.values();
             return values[points];
         }
-   //Return the link to all these numirations for 13 values
+      
+
+        //Return the link to all these numirations for 13 values
         public static int getValueLenght(){
             return Value.values().length;
   
         }
-          //Second numiration
+        
+    }
+    //Second numiration
     public enum Suit{
         HEART, DIAMOND, CLUB, SPADE;
         
@@ -43,5 +47,42 @@ public class Card {
             
         }
     }
+    //Creating attributes of the class
+    private Suit suit;
+    private Value value;
+    
+    //Creating constructor for the class
+    public Card(Suit suit, Value value) {
+        this.suit = suit;
+        this.value = value;
+
     }
+    // Generating Getters and Setters
+    public Suit getSuit() {
+        return suit;
+    }
+
+    public void setSuit(Suit suit) {
+        this.suit = suit;
+    }
+
+    public Value getValue() {
+        return value;
+    }
+
+    public void setValue(Value value) {
+        this.value = value;
+    }
+  
+    //toString method used to show how the card would look like when calling it
+    //For example: Club Seven, Hert King, Diamond Ace, Spade queen
+    public String toString() {
+        return this.suit + "_" + this.value;
+    }
+            
+
 }
+
+
+
+
