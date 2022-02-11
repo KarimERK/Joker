@@ -22,5 +22,11 @@ public class Card {
             Value[] values = Value.values();
             return values[points];
         }
-
+   //Return the link to all these numirations for 13 values
+        public static int getValueLenght(){
+            return Value.values().length;
+  
+        }
+        
+    }
 }
