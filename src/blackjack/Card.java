@@ -27,6 +27,21 @@ public class Card {
             return Value.values().length;
   
         }
+          //Second numiration
+    public enum Suit{
+        HEART, DIAMOND, CLUB, SPADE;
         
+        //Method that used for accessing the suit of the numiration 
+        public static Suit getSuites(int points) {
+            //Array that holds the suits for all numirations above
+            Suit[] suits = Suit.values();
+            return suits[points];
+        }
+        //Return the link to all these numirations for 4 suits
+        public static int getSuitLenght(){
+            return Suit.values().length;
+            
+        }
+    }
     }
 }
