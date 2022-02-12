@@ -82,7 +82,3 @@ public class Card {
         return this.suit + "_" + this.value;
     }
 }
-
-
-
-
