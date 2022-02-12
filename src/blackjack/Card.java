@@ -1,12 +1,11 @@
-
 package blackjack;
-
 /**
  *
  * @author karimkamel
+ * @modified Jack Arro Feb 2022
  */
 
-        //Declaration for the class
+//Declaration for the class
 public class Card {
     
         //Declaring value of cards
@@ -20,7 +19,7 @@ public class Card {
         //Method that used for accessing the values of the numiration 
         public static Value getValues(int points) {
             
-        //Array that holds the values for all numirations above
+            //Array that holds the values for all numirations above
             Value[] values = Value.values();
             return values[points];
         }
@@ -31,7 +30,7 @@ public class Card {
         }
         
     }
-        //Second numiration
+    //Second numiration
     public enum Suit{
         HEART, DIAMOND, CLUB, SPADE;
         
@@ -50,16 +49,16 @@ public class Card {
         
     }
     
-        //Creating attributes of the class
+    //Creating attributes of the class
     private Suit suit;
     private Value value;
     
-        //Creating constructor for the class
+    //Creating constructor for the class
     public Card(Suit suit, Value value) {
         this.suit = suit;
         this.value = value;
     }
-        // Generating Getters and Setters
+    // Generating Getters and Setters
     public Suit getSuit() {
         return suit;
     }
@@ -76,8 +75,8 @@ public class Card {
         this.value = value;
     }
   
-        //toString method used to show how the card would look like when calling it
-        //For example: Club Seven, Hert King, Diamond Ace, Spade queen
+    //toString method used to show how the card would look like when calling it
+    //For example: Club Seven, Hert King, Diamond Ace, Spade queen
     public String toString() {
         return this.suit + "_" + this.value;
     }
