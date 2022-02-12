@@ -1,12 +1,8 @@
 package blackjack;
-
 import java.util.ArrayList;
-
-
-
-
 /**
  * @author karimemil
+ * @modified Jack Arro Feb 2022
  */
 public class Deck {
     
