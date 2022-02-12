@@ -4,7 +4,7 @@ package blackjack;
  * 
  */
 public class Dealer {
-    String name = Dan;
+    String name = "Dan";
     Deck deck = new Deck();
     
     public void startGame(){
