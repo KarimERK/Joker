@@ -4,6 +4,7 @@
  */
 package blackjack;
 
+
 /**
  *
  * @author karimemil
@@ -16,5 +17,5 @@ public class BlackJack {
     public static void main(String[] args) {
         // TODO code application logic here
     }
-    
+
 }
