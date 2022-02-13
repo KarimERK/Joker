@@ -1,16 +1,56 @@
 package blackjack;
 import java.util.ArrayList;
+import java.util.Collections;
 /**
+ * @author dancye
+ * @author Paul Bonenfant Jan 2020
  * @author karimemil
- * @modified Jack Arro Feb 2022
+ * @modified Jack Arro Feb 12 2022
  */
 public class Deck {
+    
+    //The group of cards, stored in an ArrayList
+    private ArrayList<Card> cards;
+    private int size;//the size of the grouping
+
+    public Deck(int size) {
+        this.size = 52;
+    }
+
+    /**
+     * A method that will get the group of cards as an ArrayList
+     *
+     * @return the group of cards.
+     */
+    public ArrayList<Card> getCards() {
+        return cards;
+    }
+
+    public void shuffle() {
+        Collections.shuffle(cards);
+    }
+
+    /**
+     * @return the size of the group of cards
+     */
+    public int getSize() {
+        return size;
+    }
+
+    /**
+     * @param size the max size for the group of cards
+     */
+    public void setSize(int size) {
+        this.size = 52;
+    }
+}
+/*
     
     //Array list for the card list that holds the cards
     ArrayList<Card> cards = new ArrayList<>();
   
     // Create method to take cards from numiration and fill the deck
-    public void BuildDeck() {
+    public void buildDeck() {
 
     // Create a double for loop that holds both Suit and Value
     // First one to get the suit
@@ -30,29 +70,27 @@ public class Deck {
 
     // Determining values for each card
     public int cardValue() {
+        
         int value = 0;
         
-      for (Card card : cards){
-          switch(card.getValue()){
-              case ACE : value += 1; break;
-              case TWO : value+= 2; break;
-              case THREE : value+= 3; break;
-              case FOUR : value+= 4; break;
-              case FIVE : value+= 5; break;
-              case SIX : value+= 6; break;
-              case SEVEN : value+= 7; break;
-              case EIGHT : value+= 8; break;
-              case NINE : value+= 9; break;
-              case TEN : value+= 10; break;
-              case KING : value+= 10; break;
-              case QUEEN : value+= 10; break;
-              case JACK : value+= 10; break;
-          }
-      }
+        for (Card card : cards){
+            switch(card.getValue()){
+                case ACE : value += 1; break;
+                case TWO : value+= 2; break;
+                case THREE : value+= 3; break;
+                case FOUR : value+= 4; break;
+                case FIVE : value+= 5; break;
+                case SIX : value+= 6; break;
+                case SEVEN : value+= 7; break;
+                case EIGHT : value+= 8; break;
+                case NINE : value+= 9; break;
+                case TEN : value+= 10; break;
+                case KING : value+= 10; break;
+                case QUEEN : value+= 10; break;
+                case JACK : value+= 10; break;
+            }
+        }
   
-        return value;
-        
-    }
-
-    
-}
+        return value; 
+    }  
+*/
