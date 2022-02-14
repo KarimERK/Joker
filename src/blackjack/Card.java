@@ -5,8 +5,77 @@ package blackjack;
  * @modified Jack Arro Feb 12 2022
  */
 
+
+public class Card 
+{
+
+	
+    
+    
+    //Defining Suit and Value as strings for gamne playing 
+	private String suit;
+	private String value;
+
+        
+        /*Making data "private" is information hiding, so that it cannot be access by
+	 *someone else with code outside this class.*/
+	//private Card() {
+	//}
+
+	public Card(String newCardSuit, String newCardValue) {
+	// Cheking that the card is valid for playing
+        
+                //Checking the Card nuber to be between ACE and KING for valid card numbers
+            if      (newCardValue == "Ace" || newCardValue == "Two" ||newCardValue == "Three" ||newCardValue == "Four" 
+                    ||newCardValue == "Five" ||newCardValue == "Six" ||newCardValue == "Seven" ||newCardValue == "Eight" 
+                    ||newCardValue == "Nine" ||newCardValue == "Ten" ||newCardValue == "Jack" ||newCardValue == "Queen" 
+                    ||newCardValue == "King") {
+                //Setting the card number
+                this.value = newCardValue;
+                } 
+
+               
+                // Checking the card suit to be valid between Hearts,spades,Diamonds, or CLubs
+                // By using the first letter only
+            if      (newCardSuit == "HEARTS" || newCardSuit == "DIAMONDS" ||
+                    newCardSuit == "CLUBS" || newCardSuit == "SPADES") {
+                    this.suit = newCardSuit;
+                }
+
+		}
+
+	/*This is encapsulation, it's providing access to the hidden information by
+	 *putting it together in one unit with a public method. So, anyone who wants
+	 *our data will have to use a setter/getter.*/
+        
+       // Creating get value the card value
+	public String getValue() {
+            return this.value;
+	}
+        
+	public String getSuit() {
+            return suit;
+	}
+	
+	public boolean compareSuit(Card card){
+            return this.suit == card.getSuit();
+	}
+	
+	public boolean compareValue(Card card){
+            return this.value == card.getValue();
+	}
+	
+	public boolean compareTo(Card card){
+            return this.suit == card.getSuit() && this.value == card.getValue();
+	}
+} 
+
+
+
+//End class
+
 //Declaration for the class
-public abstract class Card {
+/*public abstract class Card {
     
     public enum Suit {
         HEARTS, DIAMONDS, SPADES, CLUBS
@@ -35,6 +104,7 @@ public abstract class Card {
     @Override
     public abstract String toString();
 }
+
 /*
 //Declaring value of cards
         //52 cards in the deck
