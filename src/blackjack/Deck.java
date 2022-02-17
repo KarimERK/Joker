@@ -1,96 +1,57 @@
 package blackjack;
-import java.util.ArrayList;
-import java.util.Collections;
-/**
- * @author dancye
- * @author Paul Bonenfant Jan 2020
- * @author karimemil
- * @modified Jack Arro Feb 12 2022
- */
-public class Deck {
-    
-    //The group of cards, stored in an ArrayList
-    private ArrayList<Card> cards;
-    private int size;//the size of the grouping
 
-    public Deck(int size) {
-        this.size = 52;
+import java.io.Serializable;
+import java.util.Random;
+import java.util.Scanner;
+
+public class Deck extends Exception implements Serializable {
+    //Creating ineger Card for deck
+    private int nextCardIndex;
+
+    Card[] deck = new Card[52];
+
+    public Deck() {
+
+        int count = 0;
+
+        // Creating 13 cards for each suit
+        for (int i = 1; i <= 13; i++) {
+            deck[count++] = new Card('H', i) {};
+            deck[count++] = new Card('S', i) {};
+            deck[count++] = new Card('C', i) {};
+            deck[count++] = new Card('D', i) {};
+        }
     }
 
-    /**
-     * A method that will get the group of cards as an ArrayList
-     *
-     * @return the group of cards.
-     */
-    public ArrayList<Card> getCards() {
-        return cards;
+    // Generating getters for the random card
+    public Card getCard(int index) {
+        return deck[index];
+    }
+    // Giving the next card in case of Hit and if the deck still has cards
+    public Card nextCard() {
+
+        if (nextCardIndex < 0 || nextCardIndex > 51) {
+            System.out.println("Future exception goes here");
+        }
+        return deck[nextCardIndex++];
     }
 
+    private void swapCards(int index1, int index2) {
+        Card hold;
+        hold = deck[index1];
+        deck[index1] = deck[index2];
+        deck[index2] = hold;
+    }
+
+    // Generating random numbers and shuffling the deck for playing
     public void shuffle() {
-        Collections.shuffle(cards);
-    }
-
-    /**
-     * @return the size of the group of cards
-     */
-    public int getSize() {
-        return size;
-    }
-
-    /**
-     * @param size the max size for the group of cards
-     */
-    public void setSize(int size) {
-        this.size = 52;
-    }
-}
-/*
-    
-    //Array list for the card list that holds the cards
-    ArrayList<Card> cards = new ArrayList<>();
-  
-    // Create method to take cards from numiration and fill the deck
-    public void buildDeck() {
-
-    // Create a double for loop that holds both Suit and Value
-    // First one to get the suit
-    for (int i = 0; i < Card.Suit.getSuitLenght(); i++) {
-        
-    // Second one to get the value
-    for (int k = 0; k < Card.Value.getValueLenght(); k++) {
-        
-    // Create a new card that wil get both value and suit 
-    Card card = new Card (Card.Suit.getSuites(i), Card.Value.getValues(k));
-    
-    // Add the created card to an array list
-    cards.add(card);
-    }
-    }
-  }
-
-    // Determining values for each card
-    public int cardValue() {
-        
-        int value = 0;
-        
-        for (Card card : cards){
-            switch(card.getValue()){
-                case ACE : value += 1; break;
-                case TWO : value+= 2; break;
-                case THREE : value+= 3; break;
-                case FOUR : value+= 4; break;
-                case FIVE : value+= 5; break;
-                case SIX : value+= 6; break;
-                case SEVEN : value+= 7; break;
-                case EIGHT : value+= 8; break;
-                case NINE : value+= 9; break;
-                case TEN : value+= 10; break;
-                case KING : value+= 10; break;
-                case QUEEN : value+= 10; break;
-                case JACK : value+= 10; break;
+        Random rn = new Random();
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < deck.length; j++) {
+                swapCards(i, rn.nextInt(52));
             }
         }
-  
-        return value; 
-    }  
-*/
+        nextCardIndex = 0;
+    }
+
+}

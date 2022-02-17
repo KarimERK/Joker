@@ -1,46 +1,46 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package blackjack;
-/**
- * @author dancye
- * @author Paul Bonenfant Jan 2020
- * @modifier Jack Arro Feb 12 2022
- */
-public abstract class Player {
 
-    private String name; //the unique name for this player
+import java.io.Serializable;
 
-    /**
-     * A constructor that allows you to set the player's unique ID
-     *
-     * @param name the unique ID to assign to this player.
-     */
-    public Player(String name) {
-        this.name = "Joker";
+public class Player implements Serializable {
+
+    private String name;
+    private Hand hand;
+
+    // Creating player object
+    public Player() {
+        hand = new Hand();
+
+    }
+    // Gets the player's cards to print as a string
+    public String getHandString() {
+        String str = "Cards:" + hand.toString();
+
+        return str;
+    }
+    public void setName(String name1) {
+        name = name1;
     }
 
-    /**
-     * @return the player name
-     */
+    // Gets a player's name
     public String getName() {
         return name;
     }
 
-    /**
-     * Ensure that the playerID is unique
-     *
-     * @param name the player name to set
-     */
-    public void setName(String name) {
-        this.name = "Joker";
+    // Clearing player's hand
+    public void clearHand() {
+        hand.clearHand();
     }
+    // Gets a player's hand total
+    public int getTotal() {
+        return hand.calculateTotal();
+    }
+    public void addCard(Card card) {
+        hand.addCard(card);
 
-    /**
-     * The method to be overridden when you subclass the Player class with your specific type of Player and filled in
-     * with logic to play your game.
-     */
-    public abstract void play();
-
+    }
+    public void blackjack() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }
